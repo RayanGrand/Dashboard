@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .centered {
+            position: fixed;
+            top: 45%;
+            left: 45%;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        .service {
+            font: bold 11px Arial;
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="centered">
+        {% if not current_user.is_googleConnected %}
+            <a href="{{ url_for('google_login') }}" class="service">BIND YOUR GOOGLE ACCOUNT</a>
+        {% else %}
+            <p> Connected to google</p>
+        {% endif %}
+
+        {% if not current_user.is_twitterConnected %}
+            <a href="{{ url_for('twitter_login') }}" class="service">BIND YOUR TWITTER_ACCOUNT</a>
+        {% else %}
+            <p> Connected to twitter</p>
+        {% endif %}
+    <div>
+</body>
